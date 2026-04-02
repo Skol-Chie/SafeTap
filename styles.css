@@ -579,6 +579,51 @@ h3 {
     width: min(calc(100% - 1.2rem), var(--max));
   }
 
+  .site-footer {
+    padding-bottom: 1.2rem;
+  }
+
+  .footer-panel {
+    gap: 1.25rem;
+    padding: 1.2rem;
+    border-radius: 1.5rem;
+  }
+
+  .footer-brand {
+    text-align: center;
+  }
+
+  .footer-brand .brand {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-brand p {
+    margin-top: 0.85rem;
+    font-size: 0.96rem;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    width: 100%;
+  }
+
+  .footer-links a {
+    justify-content: center;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .footer-meta {
+    gap: 0.35rem;
+    justify-items: center;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
   .phone-screen {
     min-height: 34rem;
   }
