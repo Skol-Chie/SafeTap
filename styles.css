@@ -146,6 +146,10 @@ body.nav-open {
   backdrop-filter: blur(6px);
 }
 
+.nav-overlay[hidden] {
+  display: none !important;
+}
+
 .mobile-sidebar {
   position: fixed;
   top: 0;
