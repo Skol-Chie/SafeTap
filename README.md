@@ -59,3 +59,5 @@ Possible next improvements:
 - add a proper app README with screenshots
 - convert the prototype into React or another frontend framework
 - connect screens to real backend or map services
+
+### 📲 [Download the SafeTap Android MVP (APK)](./app-release.apk)
