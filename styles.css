@@ -575,6 +575,10 @@ h3 {
 }
 
 @media (max-width: 680px) {
+  html {
+    scroll-padding-top: 1.5rem;
+  }
+
   .site-nav {
     display: flex;
     width: 100%;
@@ -584,7 +588,14 @@ h3 {
   }
 
   .site-header {
+    position: sticky;
+    top: 0.75rem;
+    left: auto;
+    transform: none;
     justify-content: center;
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    border-radius: 1.35rem;
   }
 
   .hero,
@@ -657,6 +668,10 @@ h3 {
 
   .phone-screen {
     min-height: 34rem;
+  }
+
+  .hero {
+    padding-top: 0.5rem;
   }
 
   h1 {
