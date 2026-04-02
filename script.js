@@ -1,6 +1,11 @@
 const reveals = document.querySelectorAll(".reveal");
 const navLinks = document.querySelectorAll('.site-nav a');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
 const sections = document.querySelectorAll('main[id], section[id]');
+const menuToggle = document.querySelector('.menu-toggle');
+const menuClose = document.querySelector('.menu-close');
+const mobileSidebar = document.querySelector('.mobile-sidebar');
+const navOverlay = document.querySelector('.nav-overlay');
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -22,10 +27,12 @@ reveals.forEach((item, index) => {
 });
 
 const setActiveNav = (id) => {
-  navLinks.forEach((link) => {
-    const isActive = link.getAttribute('href') === `#${id}`;
-    link.classList.toggle('active', isActive);
-    link.setAttribute('aria-current', isActive ? 'page' : 'false');
+  [navLinks, mobileNavLinks].forEach((linkGroup) => {
+    linkGroup.forEach((link) => {
+      const isActive = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('active', isActive);
+      link.setAttribute('aria-current', isActive ? 'page' : 'false');
+    });
   });
 };
 
@@ -48,5 +55,36 @@ const sectionObserver = new IntersectionObserver(
 sections.forEach((section) => {
   sectionObserver.observe(section);
 });
+
+const toggleMobileMenu = (shouldOpen) => {
+  if (!mobileSidebar || !menuToggle || !navOverlay) {
+    return;
+  }
+
+  mobileSidebar.classList.toggle('is-open', shouldOpen);
+  navOverlay.hidden = !shouldOpen;
+  menuToggle.setAttribute('aria-expanded', String(shouldOpen));
+  document.body.classList.toggle('nav-open', shouldOpen);
+};
+
+if (menuToggle && menuClose && navOverlay) {
+  menuToggle.addEventListener('click', () => {
+    toggleMobileMenu(true);
+  });
+
+  menuClose.addEventListener('click', () => {
+    toggleMobileMenu(false);
+  });
+
+  navOverlay.addEventListener('click', () => {
+    toggleMobileMenu(false);
+  });
+
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      toggleMobileMenu(false);
+    });
+  });
+}
 
 setActiveNav('top');

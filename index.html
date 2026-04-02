@@ -18,11 +18,23 @@
 </head>
 <body>
   <div class="page-shell">
+    <div class="nav-overlay" hidden></div>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="SafeTap home">
         <img src="assets/safetap-icon.png" alt="SafeTap logo">
         <span>SafeTap</span>
       </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-sidebar"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="site-nav" aria-label="Primary">
         <a href="#top">Home</a>
         <a href="#features">Features</a>
@@ -31,6 +43,20 @@
       </nav>
       <a class="button button-small" href="#download">Get App</a>
     </header>
+
+    <aside class="mobile-sidebar" id="mobile-sidebar" aria-label="Mobile menu">
+      <div class="mobile-sidebar-header">
+        <span>Menu</span>
+        <button class="menu-close" type="button" aria-label="Close navigation menu">&times;</button>
+      </div>
+      <nav class="mobile-nav" aria-label="Mobile Primary">
+        <a href="#top">Home</a>
+        <a href="#features">Features</a>
+        <a href="#why">WhyTap</a>
+        <a href="#download">Download</a>
+      </nav>
+      <a class="button mobile-cta" href="#download">Get App</a>
+    </aside>
 
     <main id="top">
       <section class="hero">
